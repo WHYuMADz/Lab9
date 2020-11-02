@@ -1,0 +1,19 @@
+function lundCheck(sixteenDigitString) {
+   var numSum = 0;
+   var value;
+   for (var i = 0; i < 16; ++i) {
+       if (i % 2 == 0) {
+           value = 2 * sixteenDigitString[i];
+           if (value >= 10) {
+               value = (Math.floor(value / 10) + value % 10);
+           }
+       } else {
+           value = +sixteenDigitString[i];
+       }
+       numSum += value;
+   }
+   return (numSum % 10 == 0);
+}
+ 
+alert(lundCheck("5594589764218858"));
+alert(lundCheck("1234567898765432"));
